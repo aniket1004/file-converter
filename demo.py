@@ -21,4 +21,3 @@ if sys.argv[1] == 'i-i':
     img = Image.open(filename)
     img.save(sys.argv[3])
     print("success")
-if (sys.argv[1] == 'p-d')
