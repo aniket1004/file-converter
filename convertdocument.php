@@ -39,9 +39,9 @@ $types = array(
 	'pdf' => 'PDF',
 	'pptx' => 'PPT',
 );
-// $type = array(
-// 	'pdf' => 'PDF',
-// );
+$type = array(
+ 	'pdf' => 'PDF',
+ );
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -93,11 +93,19 @@ $types = array(
 					<td align="center">
 						Convert To: 
 							<select name="convert_type">
-								<?php foreach($types as $key=>$type) {?>
+								<?php if ($imageType == 'txt' && $imageType == 'TXT') { 
+									foreach($types as $key=>$type) {?>
 									<?php if($key != $imageType){?>
 									<option value="<?=$key;?>"><?=$type;?></option>
 									<?php } ?>
-								<?php } ?>
+								<?php } 
+								} else {
+									foreach($type as $key=>$t) {?>
+									<?php if($key != $imageType){?>
+									<option value="<?=$key;?>"><?=$t;?></option>
+									<?php } ?>
+								<?php }
+								}?>
 							</select>
 							<br /><br />
 					</td>
