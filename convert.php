@@ -38,6 +38,7 @@ $types = array(
 	'jpg' => 'JPG',
 	'gif' => 'GIF',
 	'ico' => 'ICO',
+	'bmp' => 'BMP',
 );
 ?>
 <!DOCTYPE HTML>
