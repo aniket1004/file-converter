@@ -42,15 +42,15 @@ class Document_converter{
             else    
                 return "un-success";
 		}
-		// if ($convert_type == 'pdf' && ($file_type == 'xlsx' || $file_type == 'XLSX'))
-		// {
-		// 	$newname = $target_dir.$img_name.'.'.$convert_type;
-        //     exec("python $python_script x-p $image $newname",$output);
-        //     if ($output[0])
-		// 	    return $img_name.'.'.$convert_type;
-        //     else    
-        //         return "un-success";
-		// }		
+		if ($convert_type == 'pdf' && ($file_type == 'TXT' || $file_type == 'txt'))
+		{
+			$newname = $target_dir.$img_name.'.'.$convert_type;
+            exec("python $python_script t-p $image $newname",$output);
+            if ($output[0])
+			    return $img_name.'.'.$convert_type;
+            else    
+                return "un-success";
+		}		
 		return false; 
 	}
 	
@@ -122,7 +122,7 @@ class Document_converter{
 	}
 	
 	protected function check_only_allowed_file_types($imagetype){
-		if($imagetype != "docx" && $imagetype != "pdf" && $imagetype != "pptx" && $imagetype != "PPTX" && $imagetype != "txt" && $imagetype != "PDF" && $imagetype != "DOCX" && $imagetype != "xlsx" && $imagetype != "XLSX" ) {
+		if($imagetype != "docx" && $imagetype != "pdf" && $imagetype != "pptx" && $imagetype != "PPTX" && $imagetype != "txt" && $imagetype != "PDF" && $imagetype != "DOCX" && $imagetype != "xlsx" && $imagetype != "XLSX" && $imagetype != "txt" && $imagetype != "TXT" ) {
 			return false;
 		}
 		return true;
