@@ -64,9 +64,10 @@ class Image_converter{
             else    
                 return "unsuccess";
 		}
-		if ($convert_type == 'svg')
+		if ($convert_type == 'bmp')
 		{
-			exec("pixel2svg $image",$output);
+			$newname = $target_dir.$img_name.'.'.$convert_type;
+            exec("python $python_script i-b $image $newname",$output);
             if ($output[0])
 			    return $img_name.'.'.$convert_type;
             else    
@@ -109,7 +110,7 @@ class Image_converter{
 		// Allow certain file formats
 		$file_type = $this->check_only_allowed_image_types($imageFileType);
 		if(!$file_type){
-			echo "You cannot upload other than JPG, JPEG, GIF and PNG";
+			echo "You cannot upload other than JPG, JPEG, GIF, BMP and PNG";
 			return false;
 		}
 		
@@ -143,7 +144,7 @@ class Image_converter{
 	}
 	
 	protected function check_only_allowed_image_types($imagetype){
-		if($imagetype != "jpg" && $imagetype != "png" && $imagetype != "jpeg" && $imagetype != "gif" && $imagetype != "ico" ) {
+		if($imagetype != "jpg" && $imagetype != "png" && $imagetype != "jpeg" && $imagetype != "gif" && $imagetype != "ico" && $imagetype != "bmp" && $imagetype != "BMP" ) {
 			return false;
 		}
 		return true;
